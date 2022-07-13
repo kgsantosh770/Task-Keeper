@@ -1,0 +1,24 @@
+{
+  "name": "task-keeper",
+  "version": "1.0.0",
+  "description": "a beginner react+typescript todo list keeping web applicatin",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kgsantosh770/Task-Keeper.git"
+  },
+  "keywords": [
+    "react",
+    "typescript",
+    "beginner"
+  ],
+  "author": "K.G.Santosh",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kgsantosh770/Task-Keeper/issues"
+  },
+  "homepage": "https://github.com/kgsantosh770/Task-Keeper#readme"
+}
