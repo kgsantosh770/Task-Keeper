@@ -1,0 +1,26 @@
+.edit-container {
+    display: flex;
+}
+
+.edit-container .editableInput {
+    font-size: 15px;
+    padding: 7px;
+    border-radius: 4px;
+    border: none;
+}
+
+.edit-container .editableInput:focus-visible {
+    outline: none;
+}
+
+.edit-container .edit-done-button {
+    background-color: var(--theme-color);
+    border-radius: 4px;
+    border: none;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+.edit-container .edit-done-button .edit-done-icon {
+    color: white;
+}
