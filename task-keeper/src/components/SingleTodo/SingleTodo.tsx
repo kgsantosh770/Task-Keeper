@@ -11,7 +11,7 @@ interface Props {
 const SingleTodo: React.FC<Props> = ({ todo, todos, setTodos }) => {
 
     const tickButton = todo.isDone ? '' :
-        (< span className="done" >
+        (< span className="icon done" >
             <Done />
         </span >);
 
@@ -19,10 +19,10 @@ const SingleTodo: React.FC<Props> = ({ todo, todos, setTodos }) => {
         <li className={`todo-item ${todo.isDone ? "task-done" : ''}`} key={todo.id} >
             {todo.todo}
             <span className="item-actions">
-                <span className="edit">
+                <span className="icon edit">
                     <ModeEditOutline />
                 </span>
-                <span className="delete">
+                <span className="icon delete">
                     <DeleteOutlined />
                 </span>
                 {tickButton}
