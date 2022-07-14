@@ -43,7 +43,7 @@ const SingleTodo: React.FC<Props> = ({ todo, todos, setTodos }) => {
 
 
     return (
-        <li className={`todo-item ${todo.isDone ? "task-done" : ''}`} key={todo.id} >
+        <li className="todo-item" key={todo.id} >
             <form onSubmit={(e) => {
                 handleEdit(e, todo.id);
                 todoEditInputRef.current?.blur();

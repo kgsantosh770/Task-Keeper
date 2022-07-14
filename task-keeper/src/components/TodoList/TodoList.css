@@ -1,17 +1,38 @@
-.todolist-container{
+.allTodos {
+    display: flex;
+}
+
+.todolist-container {
+    background-color: rgba(0, 232, 248, 0.925);
     margin: 30px 30px 0;
-    column-count: 2;
-    column-gap: 20%;
+    padding: 10px 30px 30px;
+    width: 50%;
+    height: max-content;
+}
+
+.completed-list {
+    background-color: var(--theme-color);
+}
+
+.todolist-container h3 {
+    font-size: 22px;
+}
+
+.todolist-container h5 {
+    font-size: 18px;
+}
+
+.completed-list h3, .completed-list h5 {
+    color: white;
 }
 
 @media (max-width: 992px) {
-    .todolist-container{
-        column-count: 1;
+    .todolist-container {
         margin: 30px 0;
     }
 }
 
-.todolist-container .todo-item{
+.todolist-container .todo-item {
     display: flex;
     justify-content: space-between;
     background: var(--yellow-color);
@@ -20,11 +41,6 @@
     margin-bottom: 20px;
     border-radius: 8px;
     list-style: none;
-}
-
-.todolist-container .todo-item.task-done {
-    background-color: var(--theme-color);
-    color: white;
 }
 
 .todolist-container .todo-item .item-actions .icon {
