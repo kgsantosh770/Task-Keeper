@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import "./SingleTodo.css"
 import { Task } from '../InputField/Model/InputFieldProps'
 import { DeleteOutlined, ModeEditOutline, Done, RemoveCircleOutline } from '@mui/icons-material';
@@ -11,12 +11,13 @@ interface Props {
 
 const SingleTodo: React.FC<Props> = ({ todo, todos, setTodos }) => {
 
+    const todoEditInputRef = useRef<HTMLInputElement>(null);
     const [isEditable, setIsEditable] = useState<boolean>(false);
     const [editableTodo, setEditableTodo] = useState<string>(todo.todo)
 
-    const enableEdit = () => {
-        setIsEditable(true);
-    }
+    useEffect(() => {
+        todoEditInputRef.current?.focus();
+    }, [isEditable])
 
     const handleDone = (id: number) => {
         setTodos(todos.map((todo) =>
@@ -25,8 +26,11 @@ const SingleTodo: React.FC<Props> = ({ todo, todos, setTodos }) => {
     }
 
     const handleDelete = (id: number) => {
-        isEditable ? alert("complete the edit first") :
+        if(isEditable){
+            alert("complete the edit first");
+        } else if (window.confirm("Are you sure you want to delete the task ?") === true){
             setTodos(todos.filter(todo => todo.id !== id));
+        }
     }
 
     const handleEdit = (e: React.FormEvent<HTMLFormElement>, id: number) => {
@@ -37,7 +41,6 @@ const SingleTodo: React.FC<Props> = ({ todo, todos, setTodos }) => {
         setIsEditable(false);
     }
 
-    const todoEditInputRef = useRef<HTMLInputElement>(null);
 
     return (
         <li className={`todo-item ${todo.isDone ? "task-done" : ''}`} key={todo.id} >
@@ -68,7 +71,7 @@ const SingleTodo: React.FC<Props> = ({ todo, todos, setTodos }) => {
             <span className="item-actions">
                 {
                     (!isEditable && !todo.isDone) ? (
-                        <span className="icon edit" onClick={() => enableEdit()}>
+                        <span className="icon edit" onClick={() => setIsEditable(!isEditable)}>
                             <ModeEditOutline />
                         </span>
                     ) : ''
